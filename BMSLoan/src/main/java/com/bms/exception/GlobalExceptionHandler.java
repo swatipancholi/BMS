@@ -34,7 +34,7 @@ public class GlobalExceptionHandler {
 	public ResponseEntity<ResponseForException> invalidTokenException(InvalidTokenException invalidTokenException) {
 		
 		return new ResponseEntity<>(
-				new ResponseForException("Un Authorized, Login Again ...", LocalDateTime.now(), HttpStatus.UNAUTHORIZED),
+				new ResponseForException(invalidTokenException.getMessage(), LocalDateTime.now(), HttpStatus.UNAUTHORIZED),
 				HttpStatus.UNAUTHORIZED);
 	}
 	@ExceptionHandler(RetryableException.class)
@@ -51,6 +51,12 @@ public class GlobalExceptionHandler {
 				new ResponseForException("Un Authorized, Login Again ...", LocalDateTime.now(), HttpStatus.UNAUTHORIZED),
 				HttpStatus.UNAUTHORIZED);
 	}
-	
+	@ExceptionHandler(InitialDepositException.class)
+	public ResponseEntity<ResponseForException> initialDepositException(InitialDepositException ex) {
+		
+		return new ResponseEntity<>(
+				new ResponseForException("In sufficient deposit amount", LocalDateTime.now(), HttpStatus.BAD_REQUEST),
+				HttpStatus.BAD_REQUEST);
+	}
 	
 }

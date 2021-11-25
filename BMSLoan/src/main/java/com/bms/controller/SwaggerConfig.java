@@ -20,7 +20,7 @@ public class SwaggerConfig {
     }
     public ApiInfo apiInfo() {
 		 return new ApiInfoBuilder().title("Loan Service")
-				 .description("Loan API")
+				 .description("Register API")
 				 .version("0.0.1-SNAPSHOT")
 				 .build();
 	 }

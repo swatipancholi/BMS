@@ -1,4 +1,5 @@
 package com.bms.model;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ValidateToken {
-	private String uid;
-	private String name;
+	private String username;
+	private String message;
 	private boolean isValid;
 }

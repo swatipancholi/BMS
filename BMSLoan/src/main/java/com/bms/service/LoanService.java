@@ -1,19 +1,17 @@
 package com.bms.service;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.bms.exception.InvalidTokenException;
-import com.bms.model.Loan;
+import com.bms.exception.UnauthorizedException;
+import com.bms.model.LoanDetails;
 
 @Service
 public interface LoanService {
+	public ResponseEntity<Object> apply(String token, LoanDetails loanDetails)
+			throws UnauthorizedException, InvalidTokenException;
 
-	public ResponseEntity<Object> applyLoan(Loan loan,String cid,String token) throws InvalidTokenException;
-
-	public List<Loan> getCustomerLoan(String token, String customer_id) throws InvalidTokenException;
-
-	public List<Loan> getLoanByType(String loanType);
+	public ResponseEntity<Object> getLoanDetails(String token, String username)
+			throws UnauthorizedException, InvalidTokenException;
 }

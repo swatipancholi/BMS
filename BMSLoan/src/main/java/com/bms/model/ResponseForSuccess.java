@@ -11,7 +11,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ResponseForSuccess {
 	private String message;
-	private String customer_id;
-	private String loan_id;
+	private String username;
 	private String path;
 }

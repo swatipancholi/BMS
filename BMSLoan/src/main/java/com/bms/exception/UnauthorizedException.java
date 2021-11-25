@@ -1,6 +1,6 @@
 package com.bms.exception;
 
-/**Exception class*/
+/** Exception class */
 @SuppressWarnings("serial")
 public class UnauthorizedException extends RuntimeException {
 	/**
