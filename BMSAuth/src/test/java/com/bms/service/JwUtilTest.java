@@ -37,7 +37,7 @@ import com.bms.dao.UserDAO;
 
 	@Test
 	 void generateTokenTest() {
-		userdetails = new User("kumar", "kumar", new ArrayList<>());
+		userdetails = new User("axel", "axel", new ArrayList<>());
 		String generateToken = jwtUtil.generateToken(userdetails);
 		assertNotNull(generateToken);
 	}
@@ -45,7 +45,7 @@ import com.bms.dao.UserDAO;
 
 	@Test
 	 void validateTokenTest() {
-		userdetails = new User("kumar", "kumar", new ArrayList<>());
+		userdetails = new User("axel", "axel", new ArrayList<>());
 		String generateToken = jwtUtil.generateToken(userdetails);
 		Boolean validateToken = jwtUtil.validateToken(generateToken);
 		assertEquals(true, validateToken);
@@ -53,7 +53,7 @@ import com.bms.dao.UserDAO;
 	
 	@Test
 	 void validateTokenNegativeTest() {
-		userdetails = new User("kumar", "kumar", new ArrayList<>());
+		userdetails = new User("axel", "axel", new ArrayList<>());
 		String generateToken = jwtUtil.generateToken(userdetails);
 		Boolean validateToken = jwtUtil.validateToken(generateToken+"wrong");
 		assertFalse(validateToken);

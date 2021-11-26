@@ -25,11 +25,11 @@ public class BMSLoanController {
 	private LoanService loanService;
 
 	@ApiOperation(value = "Apply Loan", response = ResponseEntity.class)
-	@PostMapping(value = "/loan/apply")
+	@PostMapping(value = "/loan/{username}/apply")
 	public ResponseEntity<Object> register(@Valid @RequestBody LoanDetails loanDetails,
-			@RequestHeader("Authorization") final String token) throws UnauthorizedException, InvalidTokenException {
+			@RequestHeader("Authorization") final String token,  @PathVariable String username) throws UnauthorizedException, InvalidTokenException {
 
-		return loanService.apply(token, loanDetails);
+		return loanService.apply(token, loanDetails, username);
 	}
 
 	@ApiOperation(value = "Get Loan Details", response = ResponseEntity.class)
@@ -37,7 +37,6 @@ public class BMSLoanController {
 	public ResponseEntity<Object> getUser(@RequestHeader("Authorization") String token, @PathVariable String username)
 			throws InvalidTokenException, UnauthorizedException {
 
-		System.out.println(username);
 		return loanService.getLoanDetails(token, username);
 	}
 

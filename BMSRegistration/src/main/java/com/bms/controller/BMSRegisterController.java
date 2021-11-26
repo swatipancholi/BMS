@@ -4,7 +4,6 @@ package com.bms.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +19,7 @@ import com.bms.exception.UnauthorizedException;
 import com.bms.model.Customer;
 import com.bms.model.ResponseForSuccess;
 import com.bms.service.RegisterService;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
 
 
 
@@ -41,12 +40,9 @@ public class BMSRegisterController {
 			return registerService.editDetails(token,customer,customer_id);
 	}
 	
-	
-
 	@GetMapping(value = "/customer/{customer_id}/getDetails")
-	public ResponseEntity<Object> getUser(@PathVariable String customer_id){
-		System.out.println(customer_id);	
-		return registerService.getCustomerDetails(customer_id);
+	public ResponseEntity<Object> getUser(@RequestHeader("Authorization") String token, @PathVariable String customer_id) throws InvalidTokenException,UnauthorizedException{	
+		return registerService.getCustomerDetails(token,customer_id);
 	}
 	
 

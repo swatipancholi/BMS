@@ -12,5 +12,5 @@ import com.bms.model.ResponseForSuccess;
 public interface RegisterService {
 	public ResponseEntity<ResponseForSuccess> register(Customer customer) throws InitialDepositException,UnauthorizedException;
 	public ResponseEntity<ResponseForSuccess> editDetails(String token,Customer customer,String cid) throws UnauthorizedException,InvalidTokenException;
-	public ResponseEntity<Object> getCustomerDetails(String customer_id);
+	public ResponseEntity<Object> getCustomerDetails(String token, String customer_id)  throws UnauthorizedException,InvalidTokenException;
 }

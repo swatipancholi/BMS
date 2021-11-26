@@ -50,14 +50,13 @@ public class AuthController {
 	@PostMapping(value = "/login")
 	public ResponseEntity<Object> login(@RequestBody LoginDetails userlogincredentials) {
 		//Generates token for login
-		byte[] actualByte= Base64.getDecoder().decode(userlogincredentials.getUsername());
-		userlogincredentials.setUsername(new String(actualByte));
-		actualByte= Base64.getDecoder().decode(userlogincredentials.getPassword());
-		userlogincredentials.setPassword(new String(actualByte));
+		
 		final UserDetails userdetails = custdetailservice.loadUserByUsername(userlogincredentials.getUsername());
+		byte[] actualByte= Base64.getDecoder().decode(userdetails.getPassword());
+		String userDecodedPassword = new String(actualByte);
 		String uid = "";
 		String generateToken = "";
-		if (userdetails.getPassword().equals(userlogincredentials.getPassword())) {
+		if (userDecodedPassword.equals(userlogincredentials.getPassword())) {
 			uid = userlogincredentials.getUsername();
 			generateToken = jwtutil.generateToken(userdetails);
 			log.info("login successful");
@@ -97,5 +96,7 @@ public class AuthController {
 		return new ResponseEntity<>(res, HttpStatus.OK);
 
 	}
+	
+	
 
 }

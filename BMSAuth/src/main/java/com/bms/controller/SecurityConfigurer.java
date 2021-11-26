@@ -16,7 +16,7 @@ import com.bms.service.CustomerDetailsService;
 
 /**
  * 
- * @author swati
+ * @author rishabh
  *
  */
 @EnableWebSecurity

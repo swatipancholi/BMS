@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.Base64;
 import java.util.Date;
 import java.util.Optional;
 
@@ -47,7 +48,10 @@ public class RegisterServiceImpl implements RegisterService {
 			}
 			else {
 				customer.setCustomer_id("R-"+ (101 + cd.count()) );
-				
+				CustomerData customerData = customer.getLoginDetails();
+				String customerEncodedPassword = Base64.getEncoder().encodeToString(customerData.getPassword().getBytes());
+				customerData.setPassword(customerEncodedPassword);
+				customer.setLoginDetails(customerData);
 				cd.save(customer);
 				return new ResponseEntity<>(new ResponseForSuccess("User Registered Successfully ",customer.getCustomer_id(),"/customer/"+customer.getCustomer_id()+"/getDetails"), HttpStatus.OK);
 			}
@@ -59,8 +63,24 @@ public class RegisterServiceImpl implements RegisterService {
 		if (authFeign.getValidity(token).getBody().isValid()) {
 				Optional<Customer> cust=cd.findById(cid);
 				if(cust.isPresent()) {
+					Optional<CustomerData> user=cdao.findById(customer.getLoginDetails().getUsername());
+					
+					Boolean userNameChanged = !(cust.get().getLoginDetails().getUsername().equals(customer.getLoginDetails().getUsername()));
+										
+					if(userNameChanged && user.isPresent()) {
+						throw new UnauthorizedException("User Name already Exists");
+					}
+					
+					CustomerData customerData = customer.getLoginDetails();
+					String customerEncodedPassword = Base64.getEncoder().encodeToString(customerData.getPassword().getBytes());
+					customerData.setPassword(customerEncodedPassword);
+					customer.setLoginDetails(customerData);
+					
 					customer.setCustomer_id(cid);
+					String previousUserName = cust.get().getLoginDetails().getUsername();
 					cd.save(customer);
+					System.out.print(previousUserName);
+					cdao.deleteById(previousUserName);
 					return new ResponseEntity<>(new ResponseForSuccess("Customer Details Updated Successfully",customer.getCustomer_id(),"/customer/"+customer.getCustomer_id()+"/getDetails"), HttpStatus.OK);
 				}
 				else {
@@ -72,15 +92,23 @@ public class RegisterServiceImpl implements RegisterService {
 		}
 	}
 	
-	
 	@Override
-	public ResponseEntity<Object> getCustomerDetails(String cid) {
-		Optional<Customer> cust=cd.findById(cid);
-		if(cust.isPresent()) {
-			return new ResponseEntity<>(cust.get(),HttpStatus.OK);
-		}
-		else {
-			throw new UnauthorizedException("User Not Found");
+	public ResponseEntity<Object> getCustomerDetails(String token, String cid)  throws UnauthorizedException,InvalidTokenException {
+		if (authFeign.getValidity(token).getBody().isValid()) {
+			Optional<Customer> cust=cd.findById(cid);
+			if(cust.isPresent()) {
+				byte[] actualByte= Base64.getDecoder().decode(cust.get().getLoginDetails().getPassword());
+				String userDecodedPassword = new String(actualByte);
+				CustomerData customerData = cust.get().getLoginDetails();
+				customerData.setPassword(userDecodedPassword);
+				cust.get().setLoginDetails(customerData);
+				return new ResponseEntity<>(cust.get(),HttpStatus.OK);
+			}
+			else {
+				throw new UnauthorizedException("User Not Found");
+			}
+		}else {
+			throw new InvalidTokenException("Token not valid");
 		}
 	}
 	

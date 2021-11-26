@@ -26,15 +26,15 @@ public class LoanServiceImpl implements LoanService {
 	private AuthFeign authFeign;
 
 	@Override
-	public ResponseEntity<Object> apply(String token, LoanDetails loanDetails)
+	public ResponseEntity<Object> apply(String token, LoanDetails loanDetails, String username)
 			throws UnauthorizedException, InvalidTokenException {
 		ValidateToken validate = authFeign.getValidity(token).getBody();
 		if (validate.isValid()) {
-			loanDetails.setUsername(validate.getUsername());
+			loanDetails.setUsername(username);
 			loanDetails.setDate(new Date());
 			loanDetailsDao.save(loanDetails);
 			return new ResponseEntity<>(new ResponseForSuccess("Loan Applied Successfully",
-					loanDetails.getUsername().toString(), "/loan/apply"), HttpStatus.OK);
+					username, "/loan/"+username), HttpStatus.OK);
 		} else {
 			throw new InvalidTokenException("Token not valid");
 		}

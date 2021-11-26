@@ -9,7 +9,7 @@ import com.bms.model.LoanDetails;
 
 @Service
 public interface LoanService {
-	public ResponseEntity<Object> apply(String token, LoanDetails loanDetails)
+	public ResponseEntity<Object> apply(String token, LoanDetails loanDetails, String username)
 			throws UnauthorizedException, InvalidTokenException;
 
 	public ResponseEntity<Object> getLoanDetails(String token, String username)

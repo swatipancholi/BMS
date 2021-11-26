@@ -11,12 +11,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 class AuthResponseTest {
 
 	AuthResponse auth = new AuthResponse();
-	AuthResponse auth1 = new AuthResponse("kumar", "kumar@792", true);
+	AuthResponse auth1 = new AuthResponse("axel", "axel@123", true);
 
 	@Test
 	void testUsername() {
-		auth.setUsername("kumar");
-		assertEquals( "kumar", auth.getUsername());
+		auth.setUsername("axel");
+		assertEquals( "axel", auth.getUsername());
 	}
 
 	@Test

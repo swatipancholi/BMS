@@ -45,7 +45,7 @@ class AuthControllerTest {
 	@Test
 	 void loginTest() {
 
-		CustomerData user = new CustomerData("kumarpr", "kumar@792", null);
+		CustomerData user = new CustomerData("axel", "axel@123", null);
 		LoginDetails user1 = new LoginDetails("a3VtYXJwcg==", "a3VtYXJANzky", null);
 		UserDetails loadUserByUsername = custdetailservice.loadUserByUsername(user.getUsername());
 		UserDetails value = new User(user.getUsername(), user.getPassword(), new ArrayList<>());
@@ -58,7 +58,7 @@ class AuthControllerTest {
 	@Test
 	 void loginTestFailed() {
 
-		CustomerData user = new CustomerData("kumarpr", "kumar@792", null);
+		CustomerData user = new CustomerData("axel", "axel@123", null);
 		LoginDetails user1 = new LoginDetails("a3VtYXJwcg==", "a3VtYXJANzky", null);
 		UserDetails loadUserByUsername = custdetailservice.loadUserByUsername(user.getUsername());
 		UserDetails value = new User(user.getUsername(), user.getPassword()+"wrong", new ArrayList<>());
@@ -74,10 +74,10 @@ class AuthControllerTest {
 		
 		
 		when(jwtutil.validateToken("token")).thenReturn(true);
-		when(jwtutil.extractUsername("token")).thenReturn("kumar");
-		CustomerData user1 = new CustomerData("kumar", "kumar@792",null);
+		when(jwtutil.extractUsername("token")).thenReturn("axel");
+		CustomerData user1 = new CustomerData("axel", "axel@123",null);
 		Optional<CustomerData> data = Optional.of(user1);
-		when(userservice.findById("kumar")).thenReturn(data);
+		when(userservice.findById("axel")).thenReturn(data);
 		ResponseEntity<?> validity = authController.getValidity("bearer token");
 		assertEquals( true, validity.getBody().toString().contains("true"));
 		

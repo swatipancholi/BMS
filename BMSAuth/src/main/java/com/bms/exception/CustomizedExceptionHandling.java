@@ -31,7 +31,7 @@ public class CustomizedExceptionHandling  extends ResponseEntityExceptionHandler
 	public ResponseEntity<Object> handleUnauthorizedExceptions(UnauthorizedException ex) {
 
 		log.error("Unauthorized request");
-		return ResponseEntity.badRequest().body(new MessageResponse("Unauthorized request. Login again...",LocalDateTime.now()));
+		return ResponseEntity.badRequest().body(new MessageResponse(ex.getMessage(),LocalDateTime.now()));
 	}
 	
 	/**

@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import com.bms.validators.LoanType;
@@ -41,6 +42,7 @@ public class LoanDetails {
 	@Column(name = "rate_of_interest")
 	private float rateOfInterest;
 
+	@NotNull(message = "Date Of Applied Loan is mandatory ")
 	@Column
 	private Date date;
 
