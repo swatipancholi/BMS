@@ -16,12 +16,12 @@ import com.bms.model.MessageResponse;
 
 import lombok.extern.slf4j.Slf4j;
 
-/**Exception class*/
+/** Exception class */
 @Slf4j
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @RestControllerAdvice
-public class CustomizedExceptionHandling  extends ResponseEntityExceptionHandler {
-	
+public class CustomizedExceptionHandling extends ResponseEntityExceptionHandler {
+
 	/**
 	 * @param ex
 	 * @return
@@ -31,9 +31,9 @@ public class CustomizedExceptionHandling  extends ResponseEntityExceptionHandler
 	public ResponseEntity<Object> handleUnauthorizedExceptions(UnauthorizedException ex) {
 
 		log.error("Unauthorized request");
-		return ResponseEntity.badRequest().body(new MessageResponse(ex.getMessage(),LocalDateTime.now()));
+		return ResponseEntity.badRequest().body(new MessageResponse(ex.getMessage(), LocalDateTime.now()));
 	}
-	
+
 	/**
 	 * @param ex
 	 * @return
@@ -43,16 +43,23 @@ public class CustomizedExceptionHandling  extends ResponseEntityExceptionHandler
 	public ResponseEntity<Object> usernameNotFoundExceptions(UsernameNotFoundException ex) {
 
 		log.error("User ID not available...............");
-		return ResponseEntity.badRequest().body(new MessageResponse("User ID not available",LocalDateTime.now()));
+		return ResponseEntity.badRequest().body(new MessageResponse("User ID not available", LocalDateTime.now()));
 	}
-	
+
 	@ResponseStatus(HttpStatus.UNAUTHORIZED)
 	@ExceptionHandler(NullPointerException.class)
 	public ResponseEntity<Object> handleNullPointerExceptions(NullPointerException ex) {
 
 		log.error("User ID not available...............");
-		return ResponseEntity.badRequest().body(new MessageResponse("User ID not available",LocalDateTime.now()));
+		return ResponseEntity.badRequest().body(new MessageResponse("User ID not available", LocalDateTime.now()));
 	}
-	
-	
+
+	@ResponseStatus(HttpStatus.UNAUTHORIZED)
+	@ExceptionHandler(UserNotLoggedInException.class)
+	public ResponseEntity<Object> userNotLoggedInException(UserNotLoggedInException ex) {
+
+		return ResponseEntity.badRequest()
+				.body(new MessageResponse("User Not Logged-in. Please login.", LocalDateTime.now()));
+	}
+
 }

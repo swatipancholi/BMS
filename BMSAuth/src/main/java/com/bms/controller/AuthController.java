@@ -1,8 +1,9 @@
 package com.bms.controller;
 
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
 import java.util.Optional;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,11 +25,7 @@ import com.bms.service.JwtUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-/**
- * 
- * @author swati
- *
- */
+
 @RestController
 @Slf4j
 @Api(produces = "application/json", value = "Creating and validating the Jwt token")
@@ -41,6 +38,8 @@ public class AuthController {
 	@Autowired
 	private UserDAO userservice;
 
+	private List<String> loggedInUsers = new ArrayList<String>();
+
 	/**
 	 * 
 	 * @param userlogincredentials
@@ -49,24 +48,31 @@ public class AuthController {
 	@ApiOperation(value = "Verify credentials and generate JWT Token", response = ResponseEntity.class)
 	@PostMapping(value = "/login")
 	public ResponseEntity<Object> login(@RequestBody LoginDetails userlogincredentials) {
-		//Generates token for login
-		
+		// Generates token for login
+
 		final UserDetails userdetails = custdetailservice.loadUserByUsername(userlogincredentials.getUsername());
-		byte[] actualByte= Base64.getDecoder().decode(userdetails.getPassword());
+		byte[] actualByte = Base64.getDecoder().decode(userdetails.getPassword());
 		String userDecodedPassword = new String(actualByte);
-		String uid = "";
+		String username = "";
 		String generateToken = "";
+
 		if (userDecodedPassword.equals(userlogincredentials.getPassword())) {
-			uid = userlogincredentials.getUsername();
+			username = userlogincredentials.getUsername();
+			if (loggedInUsers.contains(username)) {
+				log.info("User: " + username + "");
+				return new ResponseEntity<>("User Already Logged-in", HttpStatus.FORBIDDEN);
+			}
 			generateToken = jwtutil.generateToken(userdetails);
+			loggedInUsers.add(username);
 			log.info("login successful");
-			return new ResponseEntity<>(new CustomerData(uid, null, generateToken), HttpStatus.OK);
+			return new ResponseEntity<>(new CustomerData(username, null, generateToken), HttpStatus.OK);
 		} else {
 			log.info("At Login : ");
 			log.error("Not Accesible");
 			return new ResponseEntity<>("Not Accesible", HttpStatus.FORBIDDEN);
 		}
 	}
+
 	/**
 	 * 
 	 * @param token
@@ -75,17 +81,23 @@ public class AuthController {
 	@ApiOperation(value = "Validate JWT Token", response = ResponseEntity.class)
 	@GetMapping(value = "/validate")
 	public ResponseEntity<Object> getValidity(@RequestHeader("Authorization") final String token) {
-		//Returns response after Validating received token
+		// Returns response after Validating received token
 		String token1 = token.substring(7);
 		AuthResponse res = new AuthResponse();
 		if (Boolean.TRUE.equals(jwtutil.validateToken(token1))) {
-			res.setUsername(jwtutil.extractUsername(token1));
+			String username = jwtutil.extractUsername(token1);
+			res.setUsername(username);
 			res.setValid(true);
-			Optional<CustomerData> user1=userservice.findById(jwtutil.extractUsername(token1));
-			if(user1.isPresent()) {
+			Optional<CustomerData> user1 = userservice.findById(username);
+			if (user1.isPresent() && loggedInUsers.contains(username)) {
 				res.setUsername(user1.get().getUsername());
 				res.setMessage("token successfully validated");
+				res.setLoggedIn(true);
 				log.info("token successfully validated");
+			} else {
+				res.setLoggedIn(false);
+				res.setMessage("Please Login First");
+				log.info("Cannot process request as User is logged out");
 			}
 		} else {
 			res.setValid(false);
@@ -96,7 +108,29 @@ public class AuthController {
 		return new ResponseEntity<>(res, HttpStatus.OK);
 
 	}
-	
-	
+
+
+	@GetMapping(value = "/log-out")
+	public ResponseEntity<Object> logout(@RequestHeader("Authorization") final String token) {
+		// Returns response after Validating received token
+		String token1 = token.substring(7);
+		AuthResponse res = new AuthResponse();
+		if (Boolean.TRUE.equals(jwtutil.validateToken(token1))) {
+			String username = jwtutil.extractUsername(token1);
+			Optional<CustomerData> user1 = userservice.findById(username);
+			if (user1.isPresent()) {
+				loggedInUsers.remove(username);
+				res.setUsername(username);
+				res.setMessage("Logout Successfull");
+			}
+		} else {
+			res.setValid(false);
+			res.setMessage("Invalid Token Received");
+			log.info("At Validity : ");
+			log.error("Token Has Expired");
+		}
+		return new ResponseEntity<>(res, HttpStatus.OK);
+
+	}
 
 }

@@ -14,4 +14,5 @@ public class ValidateToken {
 	private String uid;
 	private String name;
 	private boolean isValid;
+	private boolean isLoggedIn;
 }

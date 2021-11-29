@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bms.exception.InvalidTokenException;
 import com.bms.exception.UnauthorizedException;
+import com.bms.exception.UserNotLoggedInException;
 import com.bms.model.LoanDetails;
 import com.bms.service.LoanService;
 
@@ -25,17 +26,18 @@ public class BMSLoanController {
 	private LoanService loanService;
 
 	@ApiOperation(value = "Apply Loan", response = ResponseEntity.class)
-	@PostMapping(value = "/loan/{username}/apply")
+	@PostMapping(value = "/loan/apply")
 	public ResponseEntity<Object> register(@Valid @RequestBody LoanDetails loanDetails,
-			@RequestHeader("Authorization") final String token,  @PathVariable String username) throws UnauthorizedException, InvalidTokenException {
+			@RequestHeader("Authorization") final String token) 
+					throws UnauthorizedException, InvalidTokenException, UserNotLoggedInException {
 
-		return loanService.apply(token, loanDetails, username);
+		return loanService.apply(token, loanDetails);
 	}
 
 	@ApiOperation(value = "Get Loan Details", response = ResponseEntity.class)
 	@GetMapping(value = "/loan/{username}")
 	public ResponseEntity<Object> getUser(@RequestHeader("Authorization") String token, @PathVariable String username)
-			throws InvalidTokenException, UnauthorizedException {
+			throws InvalidTokenException, UnauthorizedException, UserNotLoggedInException {
 
 		return loanService.getLoanDetails(token, username);
 	}

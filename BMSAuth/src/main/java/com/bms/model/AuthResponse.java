@@ -26,4 +26,6 @@ public class AuthResponse {
 	 *Validity check
 	 */
 	private boolean isValid;
+	
+	private boolean isLoggedIn;
 }

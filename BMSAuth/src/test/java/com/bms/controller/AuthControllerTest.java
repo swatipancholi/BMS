@@ -45,8 +45,8 @@ class AuthControllerTest {
 	@Test
 	 void loginTest() {
 
-		CustomerData user = new CustomerData("axel", "axel@123", null);
-		LoginDetails user1 = new LoginDetails("a3VtYXJwcg==", "a3VtYXJANzky", null);
+		CustomerData user = new CustomerData("axel123", "axel@1234", null);
+		LoginDetails user1 = new LoginDetails("axel123", "axel@1234", null);
 		UserDetails loadUserByUsername = custdetailservice.loadUserByUsername(user.getUsername());
 		UserDetails value = new User(user.getUsername(), user.getPassword(), new ArrayList<>());
 		when(custdetailservice.loadUserByUsername(user.getUsername())).thenReturn(value);

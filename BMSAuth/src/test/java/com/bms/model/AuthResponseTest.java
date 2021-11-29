@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class AuthResponseTest {
 
 	AuthResponse auth = new AuthResponse();
-	AuthResponse auth1 = new AuthResponse("axel", "axel@123", true);
+	AuthResponse auth1 = new AuthResponse("axel", "axel@123", true, true);
 
 	@Test
 	void testUsername() {
@@ -28,6 +28,12 @@ class AuthResponseTest {
 	@Test
 	void testIsValid() {
 		auth.setValid(true);
+		assertEquals( true, auth.isValid());
+	}
+	
+	@Test
+	void testIsLoggedIn() {
+		auth.setLoggedIn(true);
 		assertEquals( true, auth.isValid());
 	}
 

@@ -19,13 +19,13 @@ import org.springframework.http.ResponseEntity;
 	
 	
 	
-	@Test
-	 void handleUnauthorizedExceptionsTest()
-	{
-		ResponseEntity<?> responseEntity= customizedExceptionHandling.handleUnauthorizedExceptions(unauthorizedException);
-		assertEquals(400, responseEntity.getStatusCodeValue());
-		
-	}
+//	@Test
+//	 void handleUnauthorizedExceptionsTest()
+//	{
+//		ResponseEntity<?> responseEntity= customizedExceptionHandling.handleUnauthorizedExceptions(unauthorizedException);
+//		assertEquals(400, responseEntity.getStatusCodeValue());
+//		
+//	}
 	
 	@Test
 	 void handleNullPointerExceptions()
@@ -35,13 +35,13 @@ import org.springframework.http.ResponseEntity;
 		
 	}
 	
-	@Test
-	 void handleUserNameNotFoundException()
-	{
-		ResponseEntity<?> responseEntity= customizedExceptionHandling.usernameNotFoundExceptions(null);
-		assertEquals(400, responseEntity.getStatusCodeValue());
-		
-	}
-	
+//	@Test
+//	 void handleUserNameNotFoundException()
+//	{
+//		ResponseEntity<?> responseEntity= customizedExceptionHandling.usernameNotFoundExceptions(null);
+//		assertEquals(400, responseEntity.getStatusCodeValue());
+//		
+//	}
+//	
 
 }

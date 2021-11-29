@@ -1,5 +1,0 @@
-package com.bms.exceptions;
-
-public class UserNotFoundException extends Exception {
-
-}

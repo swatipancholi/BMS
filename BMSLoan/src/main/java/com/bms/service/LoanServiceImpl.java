@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.bms.dao.LoanDetailsDao;
 import com.bms.exception.InvalidTokenException;
 import com.bms.exception.UnauthorizedException;
+import com.bms.exception.UserNotLoggedInException;
 import com.bms.model.LoanDetails;
 import com.bms.model.ResponseForSuccess;
 import com.bms.model.ValidateToken;
@@ -25,16 +26,20 @@ public class LoanServiceImpl implements LoanService {
 	@Autowired
 	private AuthFeign authFeign;
 
+	
 	@Override
-	public ResponseEntity<Object> apply(String token, LoanDetails loanDetails, String username)
-			throws UnauthorizedException, InvalidTokenException {
+	public ResponseEntity<Object> apply(String token, LoanDetails loanDetails)
+			throws UnauthorizedException, InvalidTokenException, UserNotLoggedInException {
 		ValidateToken validate = authFeign.getValidity(token).getBody();
 		if (validate.isValid()) {
-			loanDetails.setUsername(username);
+			if (!validate.isLoggedIn()) {
+				throw new UserNotLoggedInException("User Not Logged In. Please login again");
+			}
+			loanDetails.setUsername(validate.getUsername());
 			loanDetails.setDate(new Date());
 			loanDetailsDao.save(loanDetails);
 			return new ResponseEntity<>(new ResponseForSuccess("Loan Applied Successfully",
-					username, "/loan/"+username), HttpStatus.OK);
+					loanDetails.getUsername().toString(), "/loan/apply"), HttpStatus.OK);
 		} else {
 			throw new InvalidTokenException("Token not valid");
 		}
@@ -43,11 +48,14 @@ public class LoanServiceImpl implements LoanService {
 
 	@Override
 	public ResponseEntity<Object> getLoanDetails(String token, String username)
-			throws UnauthorizedException, InvalidTokenException {
+			throws UnauthorizedException, InvalidTokenException, UserNotLoggedInException {
 		ValidateToken validate = authFeign.getValidity(token).getBody();
 		if (validate.isValid()) {
 			List<LoanDetails> loanDetails = loanDetailsDao.findAllByUsername(username);
 			if (!loanDetails.isEmpty()) {
+				if (!validate.isLoggedIn()) {
+					throw new UserNotLoggedInException("User Not Logged In. Please login again");
+				}
 				return new ResponseEntity<>(loanDetails, HttpStatus.OK);
 			} else {
 				throw new UnauthorizedException("Loan Details Not Found");

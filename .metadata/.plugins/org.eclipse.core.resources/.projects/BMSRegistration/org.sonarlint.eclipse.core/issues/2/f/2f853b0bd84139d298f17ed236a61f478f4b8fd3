@@ -1,0 +1,35 @@
+
+i	java:S106R"9Replace this use of System.out or System.err by a logger.(ЦЇъТяяяяяHЖRMAJORZ
+CODE_SMELL
+V
+java:S5411F"*Use the primitive boolean expression here.(гЦћHЗRMINORZ
+CODE_SMELL
+j
+java:S1128"7Remove this unused import 'java.text.SimpleDateFormat'.(ъЎЩЫ8’ФрФХ/HКRMINORZ
+CODE_SMELL
+f
+java:S1128".Remove this unused import 'java.time.Instant'.(В‚йсяяяяя8’ФрФХ/HЛRMINORZ
+CODE_SMELL
+h
+java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬иэяяяя8’ФрФХ/HМRMINORZ
+CODE_SMELL
+`
+java:S1128"-Remove this unused import 'java.time.Period'.(љЙўЅ8’ФрФХ/HНRMINORZ
+CODE_SMELL
+`
+java:S1128"-Remove this unused import 'java.time.ZoneId'.( ЖЅ“8’ФрФХ/HОRMINORZ
+CODE_SMELL
+l
+java:S1128"4Remove this unused import 'java.time.ZonedDateTime'.(ЕЇР©ыяяяя8’ФрФХ/HПRMINORZ
+CODE_SMELL
+^
+java:S1128
+"+Remove this unused import 'java.util.Date'.(ё…јь8’ФрФХ/HРRMINORZ
+CODE_SMELL
+“
+java:S1128"[Remove this unused import 'com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand'.(юМ—кюяяяя8’ФрФХ/HСRMINORZ
+CODE_SMELL
+w
+java:S2259?"FA "NullPointerException" could be thrown; "getBody()" can return null.(усФЌшяяяя8’ФрФХ/HТRMAJORZBUG
+w
+java:S2259a"FA "NullPointerException" could be thrown; "getBody()" can return null.(усФЌшяяяя8’ФрФХ/HХRMAJORZBUG

@@ -5,13 +5,14 @@ import org.springframework.stereotype.Service;
 
 import com.bms.exception.InvalidTokenException;
 import com.bms.exception.UnauthorizedException;
+import com.bms.exception.UserNotLoggedInException;
 import com.bms.model.LoanDetails;
 
 @Service
 public interface LoanService {
-	public ResponseEntity<Object> apply(String token, LoanDetails loanDetails, String username)
-			throws UnauthorizedException, InvalidTokenException;
+	public ResponseEntity<Object> apply(String token, LoanDetails loanDetails)
+			throws UnauthorizedException, InvalidTokenException, UserNotLoggedInException;
 
 	public ResponseEntity<Object> getLoanDetails(String token, String username)
-			throws UnauthorizedException, InvalidTokenException;
+			throws UnauthorizedException, InvalidTokenException, UserNotLoggedInException;
 }
