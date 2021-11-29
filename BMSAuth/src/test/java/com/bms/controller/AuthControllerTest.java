@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
@@ -45,12 +46,14 @@ class AuthControllerTest {
 	@Test
 	 void loginTest() {
 
-		CustomerData user = new CustomerData("axel123", "axel@1234", null);
-		LoginDetails user1 = new LoginDetails("axel123", "axel@1234", null);
+		CustomerData user = new CustomerData("swati", "1234swati", null);
+		LoginDetails user1 = new LoginDetails("swati", "1234swati", null);
 		UserDetails loadUserByUsername = custdetailservice.loadUserByUsername(user.getUsername());
 		UserDetails value = new User(user.getUsername(), user.getPassword(), new ArrayList<>());
 		when(custdetailservice.loadUserByUsername(user.getUsername())).thenReturn(value);
 		when(jwtutil.generateToken(loadUserByUsername)).thenReturn("token");
+		String customerEncodedPassword = Base64.getEncoder().encodeToString(user1.getPassword().getBytes());
+		user1.setPassword(customerEncodedPassword);
 		ResponseEntity<?> login = authController.login(user1);
 		assertEquals( 200, login.getStatusCodeValue());
 	}
@@ -58,8 +61,8 @@ class AuthControllerTest {
 	@Test
 	 void loginTestFailed() {
 
-		CustomerData user = new CustomerData("axel", "axel@123", null);
-		LoginDetails user1 = new LoginDetails("a3VtYXJwcg==", "a3VtYXJANzky", null);
+		CustomerData user = new CustomerData("swati", "1234swati", null);
+		LoginDetails user1 = new LoginDetails("swati", "a3VtYXJANzky", null);
 		UserDetails loadUserByUsername = custdetailservice.loadUserByUsername(user.getUsername());
 		UserDetails value = new User(user.getUsername(), user.getPassword()+"wrong", new ArrayList<>());
 		when(custdetailservice.loadUserByUsername(user.getUsername())).thenReturn(value);
@@ -75,7 +78,7 @@ class AuthControllerTest {
 		
 		when(jwtutil.validateToken("token")).thenReturn(true);
 		when(jwtutil.extractUsername("token")).thenReturn("axel");
-		CustomerData user1 = new CustomerData("axel", "axel@123",null);
+		CustomerData user1 = new CustomerData("swati", "1234swati",null);
 		Optional<CustomerData> data = Optional.of(user1);
 		when(userservice.findById("axel")).thenReturn(data);
 		ResponseEntity<?> validity = authController.getValidity("bearer token");

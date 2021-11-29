@@ -37,7 +37,7 @@ import com.bms.dao.UserDAO;
 
 	@Test
 	 void generateTokenTest() {
-		userdetails = new User("axel", "axel", new ArrayList<>());
+		userdetails = new User("swati", "swati", new ArrayList<>());
 		String generateToken = jwtUtil.generateToken(userdetails);
 		assertNotNull(generateToken);
 	}

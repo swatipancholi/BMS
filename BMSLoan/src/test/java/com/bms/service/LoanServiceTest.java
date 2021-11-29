@@ -49,7 +49,7 @@ public class LoanServiceTest {
 		loanDetail.setLoanType("personal");
 		loanDetail.setDate(new Date());
 		loanDetail.setRateOfInterest(6);
-		loanDetail.setUsername("Rishabh");
+		loanDetail.setUsername("swati");
 		validateToken = new ValidateToken("uid","name",true,true);
 		response = new ResponseEntity<ValidateToken>(validateToken,HttpStatus.OK);
 		when(authFeign.getValidity("token")).thenReturn(response);

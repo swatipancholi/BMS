@@ -11,12 +11,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 class UserDataTest {
 
 	CustomerData auth = new CustomerData();
-	CustomerData auth1 = new CustomerData("axel", "axel@123", "token");
+	CustomerData auth1 = new CustomerData("swati", "1234swati", "token");
 
 	@Test
 	void testUsername() {
-		auth.setUsername("axel");
-		assertEquals( "axel", auth.getUsername());
+		auth.setUsername("swati");
+		assertEquals( "swati", auth.getUsername());
 	}
 
 	@Test

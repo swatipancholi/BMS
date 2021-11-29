@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="BMSAuth" project="BMSAuth" tests="23" started="23" failures="1" errors="2" ignored="0">
+  <testsuite name="com.bms.controller.AuthControllerTest" time="0.456" displayname="AuthControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.bms.controller.AuthControllerTest]">
+    <testcase name="loginTest" classname="com.bms.controller.AuthControllerTest" time="0.27" displayname="loginTest()" uniqueid="[engine:junit-jupiter]/[class:com.bms.controller.AuthControllerTest]/[method:loginTest()]">
+      <error>java.lang.IllegalArgumentException: Illegal base64 character 40&#13;
+	at java.base/java.util.Base64$Decoder.decode0(Base64.java:791)&#13;
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:567)&#13;
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:590)&#13;
+	at com.bms.controller.AuthController.login(AuthController.java:54)&#13;
+	at com.bms.controller.AuthControllerTest.loginTest(AuthControllerTest.java:54)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)&#13;
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:686)&#13;
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)&#13;
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)&#13;
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)&#13;
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)&#13;
+	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)&#13;
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)&#13;
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)&#13;
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:212)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:208)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:137)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:71)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:135)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)&#13;
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)&#13;
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)&#13;
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)&#13;
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)&#13;
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)&#13;
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:248)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$5(DefaultLauncher.java:211)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:226)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:199)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:141)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:768)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="loginTestFailed" classname="com.bms.controller.AuthControllerTest" time="0.03" displayname="loginTestFailed()" uniqueid="[engine:junit-jupiter]/[class:com.bms.controller.AuthControllerTest]/[method:loginTestFailed()]">
+      <error>java.lang.NullPointerException: Cannot invoke "org.springframework.security.core.userdetails.UserDetails.getPassword()" because "userdetails" is null&#13;
+	at com.bms.controller.AuthController.login(AuthController.java:54)&#13;
+	at com.bms.controller.AuthControllerTest.loginTestFailed(AuthControllerTest.java:67)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)&#13;
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:686)&#13;
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)&#13;
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)&#13;
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)&#13;
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)&#13;
+	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)&#13;
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)&#13;
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)&#13;
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:212)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:208)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:137)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:71)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:135)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)&#13;
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)&#13;
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)&#13;
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)&#13;
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)&#13;
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)&#13;
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:248)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$5(DefaultLauncher.java:211)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:226)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:199)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:141)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:768)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+&#13;
+</error>
+    </testcase>
+    <testcase name="validateTestInValidtoken" classname="com.bms.controller.AuthControllerTest" time="0.11" displayname="validateTestInValidtoken()" uniqueid="[engine:junit-jupiter]/[class:com.bms.controller.AuthControllerTest]/[method:validateTestInValidtoken()]"/>
+    <testcase name="validateTestValidtoken" classname="com.bms.controller.AuthControllerTest" time="0.02" displayname="validateTestValidtoken()" uniqueid="[engine:junit-jupiter]/[class:com.bms.controller.AuthControllerTest]/[method:validateTestValidtoken()]"/>
+  </testsuite>
+  <testsuite name="com.bms.model.UserDataTest" time="0.166" displayname="UserDataTest" uniqueid="[engine:junit-jupiter]/[class:com.bms.model.UserDataTest]">
+    <testcase name="testToken" classname="com.bms.model.UserDataTest" time="0.069" displayname="testToken()" uniqueid="[engine:junit-jupiter]/[class:com.bms.model.UserDataTest]/[method:testToken()]"/>
+    <testcase name="testName" classname="com.bms.model.UserDataTest" time="0.025" displayname="testName()" uniqueid="[engine:junit-jupiter]/[class:com.bms.model.UserDataTest]/[method:testName()]"/>
+    <testcase name="testToString" classname="com.bms.model.UserDataTest" time="0.026" displayname="testToString()" uniqueid="[engine:junit-jupiter]/[class:com.bms.model.UserDataTest]/[method:testToString()]"/>
+    <testcase name="testUsername" classname="com.bms.model.UserDataTest" time="0.023" displayname="testUsername()" uniqueid="[engine:junit-jupiter]/[class:com.bms.model.UserDataTest]/[method:testUsername()]"/>
+  </testsuite>
+  <testsuite name="com.bms.model.MessageResponseTest" time="0.069" displayname="MessageResponseTest" uniqueid="[engine:junit-jupiter]/[class:com.bms.model.MessageResponseTest]">
+    <testcase name="testMsg" classname="com.bms.model.MessageResponseTest" time="0.021" displayname="testMsg()" uniqueid="[engine:junit-jupiter]/[class:com.bms.model.MessageResponseTest]/[method:testMsg()]"/>
+    <testcase name="testDate" classname="com.bms.model.MessageResponseTest" time="0.04" displayname="testDate()" uniqueid="[engine:junit-jupiter]/[class:com.bms.model.MessageResponseTest]/[method:testDate()]"/>
+  </testsuite>
+  <testsuite name="com.bms.model.AuthResponseTest" time="0.094" displayname="AuthResponseTest" uniqueid="[engine:junit-jupiter]/[class:com.bms.model.AuthResponseTest]">
+    <testcase name="testName" classname="com.bms.model.AuthResponseTest" time="0.012" displayname="testName()" uniqueid="[engine:junit-jupiter]/[class:com.bms.model.AuthResponseTest]/[method:testName()]"/>
+    <testcase name="testUsername" classname="com.bms.model.AuthResponseTest" time="0.022" displayname="testUsername()" uniqueid="[engine:junit-jupiter]/[class:com.bms.model.AuthResponseTest]/[method:testUsername()]"/>
+    <testcase name="testIsLoggedIn" classname="com.bms.model.AuthResponseTest" time="0.046" displayname="testIsLoggedIn()" uniqueid="[engine:junit-jupiter]/[class:com.bms.model.AuthResponseTest]/[method:testIsLoggedIn()]">
+      <failure>
+        <expected>true</expected>
+        <actual>false</actual>
+        org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;&#13;
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)&#13;
+	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)&#13;
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)&#13;
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)&#13;
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1124)&#13;
+	at com.bms.model.AuthResponseTest.testIsLoggedIn(AuthResponseTest.java:37)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)&#13;
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)&#13;
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:686)&#13;
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)&#13;
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)&#13;
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)&#13;
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)&#13;
+	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)&#13;
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)&#13;
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)&#13;
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)&#13;
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:212)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:208)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:137)&#13;
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:71)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:135)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)&#13;
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)&#13;
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)&#13;
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)&#13;
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)&#13;
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)&#13;
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)&#13;
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)&#13;
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:248)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$5(DefaultLauncher.java:211)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:226)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:199)&#13;
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:141)&#13;
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:98)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:541)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:768)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+&#13;
+
+      </failure>
+    </testcase>
+    <testcase name="testIsValid" classname="com.bms.model.AuthResponseTest" time="0.009" displayname="testIsValid()" uniqueid="[engine:junit-jupiter]/[class:com.bms.model.AuthResponseTest]/[method:testIsValid()]"/>
+  </testsuite>
+  <testsuite name="com.bms.model.JwtReturnTest" time="0.011" displayname="JwtReturnTest" uniqueid="[engine:junit-jupiter]/[class:com.bms.model.JwtReturnTest]">
+    <testcase name="testToken" classname="com.bms.model.JwtReturnTest" time="0.011" displayname="testToken()" uniqueid="[engine:junit-jupiter]/[class:com.bms.model.JwtReturnTest]/[method:testToken()]"/>
+  </testsuite>
+  <testsuite name="com.bms.service.ServiceTest" time="0.057" displayname="ServiceTest" uniqueid="[engine:junit-jupiter]/[class:com.bms.service.ServiceTest]">
+    <testcase name="loadUserByUsernameFalseTest" classname="com.bms.service.ServiceTest" time="0.034" displayname="loadUserByUsernameFalseTest()" uniqueid="[engine:junit-jupiter]/[class:com.bms.service.ServiceTest]/[method:loadUserByUsernameFalseTest()]"/>
+    <testcase name="loadUserByUsernameTest" classname="com.bms.service.ServiceTest" time="0.014" displayname="loadUserByUsernameTest()" uniqueid="[engine:junit-jupiter]/[class:com.bms.service.ServiceTest]/[method:loadUserByUsernameTest()]"/>
+  </testsuite>
+  <testsuite name="com.bms.service.JwUtilTest" time="1.689" displayname="JwUtilTest" uniqueid="[engine:junit-jupiter]/[class:com.bms.service.JwUtilTest]">
+    <testcase name="validateTokenTest" classname="com.bms.service.JwUtilTest" time="1.644" displayname="validateTokenTest()" uniqueid="[engine:junit-jupiter]/[class:com.bms.service.JwUtilTest]/[method:validateTokenTest()]"/>
+    <testcase name="generateTokenTest" classname="com.bms.service.JwUtilTest" time="0.012" displayname="generateTokenTest()" uniqueid="[engine:junit-jupiter]/[class:com.bms.service.JwUtilTest]/[method:generateTokenTest()]"/>
+    <testcase name="validateTokenNegativeTest" classname="com.bms.service.JwUtilTest" time="0.026" displayname="validateTokenNegativeTest()" uniqueid="[engine:junit-jupiter]/[class:com.bms.service.JwUtilTest]/[method:validateTokenNegativeTest()]"/>
+  </testsuite>
+  <testsuite name="com.bms.BmsAuthApplicationTests" time="10.661" displayname="BmsAuthApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.bms.BmsAuthApplicationTests]">
+    <testcase name="contextLoads" classname="com.bms.BmsAuthApplicationTests" time="10.661" displayname="contextLoads()" uniqueid="[engine:junit-jupiter]/[class:com.bms.BmsAuthApplicationTests]/[method:contextLoads()]"/>
+  </testsuite>
+  <testsuite name="com.bms.exception.UnauthorizedExceptionTest" time="0.012" displayname="UnauthorizedExceptionTest" uniqueid="[engine:junit-jupiter]/[class:com.bms.exception.UnauthorizedExceptionTest]">
+    <testcase name="constructortest" classname="com.bms.exception.UnauthorizedExceptionTest" time="0.012" displayname="constructortest()" uniqueid="[engine:junit-jupiter]/[class:com.bms.exception.UnauthorizedExceptionTest]/[method:constructortest()]"/>
+  </testsuite>
+  <testsuite name="com.bms.exception.CustomizedExceptionHandlingTest" time="0.079" displayname="CustomizedExceptionHandlingTest" uniqueid="[engine:junit-jupiter]/[class:com.bms.exception.CustomizedExceptionHandlingTest]">
+    <testcase name="handleNullPointerExceptions" classname="com.bms.exception.CustomizedExceptionHandlingTest" time="0.079" displayname="handleNullPointerExceptions()" uniqueid="[engine:junit-jupiter]/[class:com.bms.exception.CustomizedExceptionHandlingTest]/[method:handleNullPointerExceptions()]"/>
+  </testsuite>
+</testrun>

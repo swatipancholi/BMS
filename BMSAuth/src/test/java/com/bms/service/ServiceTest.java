@@ -31,19 +31,19 @@ import com.bms.model.CustomerData;
 	@Test
 	 void loadUserByUsernameTest() {
 		
-		CustomerData user1=new CustomerData("kumar","kumar@792",null);
+		CustomerData user1=new CustomerData("swati","1234swati",null);
 		Optional<CustomerData> data =Optional.of(user1) ;
-		when(userservice.findById("kumar")).thenReturn(data);
-		UserDetails loadUserByUsername2 = custdetailservice.loadUserByUsername("kumar");
+		when(userservice.findById("swati")).thenReturn(data);
+		UserDetails loadUserByUsername2 = custdetailservice.loadUserByUsername("swati");
 		assertEquals(user1.getUsername(),loadUserByUsername2.getUsername());
 	}
 	
 	@Test
 	 void loadUserByUsernameFalseTest() {
 		
-		CustomerData user=new CustomerData("kumar","kumar@792",null);
+		CustomerData user=new CustomerData("swati","1234swati",null);
 		Optional<CustomerData> data =Optional.of(user) ;
-		when(userservice.findById("kumar")).thenReturn(data);
+		when(userservice.findById("swati")).thenReturn(data);
 		UserDetails loadUserByUsername = custdetailservice.loadUserByUsername(user.getUsername());
 		assertNotEquals(user.getUsername()+"false",loadUserByUsername.getUsername());
 	}

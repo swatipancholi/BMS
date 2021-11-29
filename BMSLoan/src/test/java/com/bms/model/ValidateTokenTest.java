@@ -13,12 +13,12 @@ public class ValidateTokenTest {
 	
 	@Before
 	public void init() {
-		validateToken = new ValidateToken("Rishabh","Logged In",true,true);
+		validateToken = new ValidateToken("swati","Logged In",true,true);
 	}
 	
 	@Test
 	public void testUserName() {
-		assertEquals("Rishabh", validateToken.getUsername());
+		assertEquals("swati", validateToken.getUsername());
 	}
 	
 	@Test

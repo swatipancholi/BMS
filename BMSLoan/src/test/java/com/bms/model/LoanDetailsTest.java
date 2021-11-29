@@ -21,12 +21,12 @@ public class LoanDetailsTest {
 		loanDetail.setLoanType("personal");
 		loanDetail.setDate(new Date());
 		loanDetail.setRateOfInterest(6);
-		loanDetail.setUsername("Rishabh");
+		loanDetail.setUsername("swati");
 	}
 	
 	@Test
 	public void testUsername() {
-		assertEquals("Rishabh", loanDetail.getUsername());
+		assertEquals("swati", loanDetail.getUsername());
 	}
 	
 	@Test
