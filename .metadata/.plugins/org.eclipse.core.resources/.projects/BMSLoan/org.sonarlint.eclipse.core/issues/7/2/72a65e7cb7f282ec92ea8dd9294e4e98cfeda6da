@@ -1,5 +1,8 @@
 
 k
-java:S2259 "FA "NullPointerException" could be thrown; "validate" is nullable here.(«“ØH˜RMAJORZBUG
+java:S2259""FA "NullPointerException" could be thrown; "validate" is nullable here.(«“ØHïRMAJORZBUG
 k
-java:S22590"FA "NullPointerException" could be thrown; "validate" is nullable here.(«“ØHœRMAJORZBUG
+java:S22595"FA "NullPointerException" could be thrown; "validate" is nullable here.(«“ØHóRMAJORZBUG
+w
+java:S1858*"E"getUsername" returns a string, there's no need to call "toString()".(ú ´68‰–•ŞÖ/H÷RMINORZ
+CODE_SMELL

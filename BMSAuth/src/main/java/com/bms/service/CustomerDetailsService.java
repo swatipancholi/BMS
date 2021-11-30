@@ -43,7 +43,7 @@ public class CustomerDetailsService implements UserDetailsService {
 			}
 		}
 		catch (Exception e) {
-			throw new UnauthorizedException("UsernameNotFoundException");
+			throw new UnauthorizedException("Username Not Found");
 		}	
 		
 		

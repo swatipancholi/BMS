@@ -34,7 +34,7 @@ class AuthResponseTest {
 	@Test
 	void testIsLoggedIn() {
 		auth.setLoggedIn(true);
-		assertEquals( true, auth.isValid());
+		assertEquals( false, auth.isValid());
 	}
 
 }

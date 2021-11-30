@@ -33,8 +33,12 @@ public class RegisterServiceImpl implements RegisterService {
 
 	@Override
 	public ResponseEntity<ResponseForSuccess> register(Customer customer)
-			throws InitialDepositException, UnauthorizedException {
-
+			throws InitialDepositException, UnauthorizedException,NullPointerException {
+		
+        if(customer.getState().isEmpty()|| customer.getContactNo().isEmpty()||customer.getEmailAddress().isEmpty()
+        		||customer.getCountry().isEmpty()) {
+        	throw new NullPointerException("Values can not be empty");
+        }
 		Optional<CustomerData> user = cdao.findById(customer.getLoginDetails().getUsername());
 		if (user.isPresent()) {
 			throw new UnauthorizedException("User already Exists");

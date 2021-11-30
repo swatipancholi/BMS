@@ -12,7 +12,7 @@ import com.bms.model.ResponseForSuccess;
 @Service
 public interface RegisterService {
 	public ResponseEntity<ResponseForSuccess> register(Customer customer) 
-			throws InitialDepositException,UnauthorizedException;
+			throws InitialDepositException,UnauthorizedException,NullPointerException;
 			
 	public ResponseEntity<ResponseForSuccess> editDetails(String token,Customer customer,String cid) 
 			throws UnauthorizedException,InvalidTokenException, UserNotLoggedInException;

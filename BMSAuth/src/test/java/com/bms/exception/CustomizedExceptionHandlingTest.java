@@ -7,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 @SpringBootTest
  class CustomizedExceptionHandlingTest {
@@ -17,15 +18,22 @@ import org.springframework.http.ResponseEntity;
 	@Mock
 	UnauthorizedException unauthorizedException;
 	
+	@Mock
+	UsernameNotFoundException usernameNotFoundException;
 	
+	@Mock
+	UserNotLoggedInException userNotLoggedInException;
 	
-//	@Test
-//	 void handleUnauthorizedExceptionsTest()
-//	{
-//		ResponseEntity<?> responseEntity= customizedExceptionHandling.handleUnauthorizedExceptions(unauthorizedException);
-//		assertEquals(400, responseEntity.getStatusCodeValue());
-//		
-//	}
+	@Mock
+	UserNameCanNotBeEmpty userNameCanNotBeEmpty;
+	
+	@Test
+	 void handleUnauthorizedExceptionsTest()
+	{
+		ResponseEntity<?> responseEntity= customizedExceptionHandling.handleUnauthorizedExceptions(unauthorizedException);
+		assertEquals(400, responseEntity.getStatusCodeValue());
+		
+	}
 	
 	@Test
 	 void handleNullPointerExceptions()
@@ -35,13 +43,27 @@ import org.springframework.http.ResponseEntity;
 		
 	}
 	
-//	@Test
-//	 void handleUserNameNotFoundException()
-//	{
-//		ResponseEntity<?> responseEntity= customizedExceptionHandling.usernameNotFoundExceptions(null);
-//		assertEquals(400, responseEntity.getStatusCodeValue());
-//		
-//	}
-//	
+	@Test
+	 void handleUserNameNotFoundException()
+	{
+		ResponseEntity<?> responseEntity= customizedExceptionHandling.usernameNotFoundExceptions(usernameNotFoundException);
+		assertEquals(400, responseEntity.getStatusCodeValue());
+		
+	}
 
+	@Test
+	void handleUserNameCanNotBeEmptyException()
+	{
+		ResponseEntity<?> responseEntity= customizedExceptionHandling.userNameCanNotBeEmpty(userNameCanNotBeEmpty);
+		assertEquals(400, responseEntity.getStatusCodeValue());
+		
+	}
+	
+	@Test
+	void handleUserNameLoggedInException()
+	{
+		ResponseEntity<?> responseEntity= customizedExceptionHandling.userNotLoggedInException(userNotLoggedInException);
+		assertEquals(400, responseEntity.getStatusCodeValue());
+		
+	}
 }

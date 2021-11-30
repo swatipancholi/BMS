@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bms.dao.UserDAO;
+import com.bms.exception.UnauthorizedException;
+import com.bms.exception.UserNameCanNotBeEmpty;
 import com.bms.model.AuthResponse;
 import com.bms.model.CustomerData;
 import com.bms.model.LoginDetails;
@@ -47,10 +49,14 @@ public class AuthController {
 	 */
 	@ApiOperation(value = "Verify credentials and generate JWT Token", response = ResponseEntity.class)
 	@PostMapping(value = "/login")
-	public ResponseEntity<Object> login(@RequestBody LoginDetails userlogincredentials) {
+	public ResponseEntity<Object> login(@RequestBody LoginDetails userlogincredentials)  throws UserNameCanNotBeEmpty, UnauthorizedException{
 		// Generates token for login
-
+		if(userlogincredentials.getUsername().isEmpty()) {
+			throw new UserNameCanNotBeEmpty("User Name cannot be empty");
+		}
 		final UserDetails userdetails = custdetailservice.loadUserByUsername(userlogincredentials.getUsername());
+//		System.out.println(userlogincredentials.getUsername() +" " + userlogincredentials.getPassword());
+//		System.out.println(userdetails.getUsername() +" " + userdetails.getPassword());
 		byte[] actualByte = Base64.getDecoder().decode(userdetails.getPassword());
 		String userDecodedPassword = new String(actualByte);
 		String username = "";
@@ -69,7 +75,8 @@ public class AuthController {
 		} else {
 			log.info("At Login : ");
 			log.error("Not Accesible");
-			return new ResponseEntity<>("Not Accesible", HttpStatus.FORBIDDEN);
+//			return new ResponseEntity<>("user name and password are incorrect", HttpStatus.FORBIDDEN);
+			throw new UnauthorizedException("User Name and Password are incorrect");
 		}
 	}
 

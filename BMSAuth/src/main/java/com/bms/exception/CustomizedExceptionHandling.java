@@ -61,5 +61,13 @@ public class CustomizedExceptionHandling extends ResponseEntityExceptionHandler 
 		return ResponseEntity.badRequest()
 				.body(new MessageResponse("User Not Logged-in. Please login.", LocalDateTime.now()));
 	}
+	
+	@ResponseStatus(HttpStatus.UNAUTHORIZED)
+	@ExceptionHandler(UserNameCanNotBeEmpty.class)
+	public ResponseEntity<Object> userNameCanNotBeEmpty(UserNameCanNotBeEmpty ex) {
+
+		log.error("User Name can not be empty");
+		return ResponseEntity.badRequest().body(new MessageResponse(ex.getMessage(), LocalDateTime.now()));
+	}
 
 }

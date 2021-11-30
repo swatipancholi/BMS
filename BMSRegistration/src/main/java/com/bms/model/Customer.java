@@ -44,7 +44,7 @@ public class Customer {
 	@Column
 	private String address;
 	
-	@NotBlank(message = "State Name is mandatory ")
+//	@NotBlank(message = "State Name is mandatory ")
 	@Column
 	private String state;
 	

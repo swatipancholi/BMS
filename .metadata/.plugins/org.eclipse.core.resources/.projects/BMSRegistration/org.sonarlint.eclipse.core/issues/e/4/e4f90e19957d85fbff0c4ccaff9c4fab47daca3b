@@ -1,6 +1,6 @@
 
-	java:S116"VRename this field "customer_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëÒÄÀH’RMINORZ
+	java:S116"VRename this field "customer_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëÒÄÀHîRMINORZ
 CODE_SMELL
 j
-java:S1128">Remove this unused import 'javax.validation.constraints.Size'.(›«´ÝH“RMINORZ
+java:S1128">Remove this unused import 'javax.validation.constraints.Size'.(›«´ÝHíRMINORZ
 CODE_SMELL
